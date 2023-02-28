@@ -1,0 +1,16 @@
+{
+    "theme_color": "#12FBF0",
+    "background_color": "white",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "name": "My Content",
+    "short_name": "MCR",
+    "description": "API Flask qui prend un id utilisateur en entrée et retourne les recommandations d’articles associées",
+    "icons": [{
+        "src": "logo.png",
+        "sizes": "60x60",
+        "type": "image/png",
+        "purpose": "maskable"
+    }]
+}

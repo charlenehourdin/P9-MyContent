@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block body %}
+<main class="main-content">
+    <div class="header-content">
+        <h1 class="title-header">My Content</h1>
+    </div>
+    <div class="header-content">
+        <h2 class="subtitle-header">Start-up qui veut encourager la lecture en recommandant des contenus pertinents pour ses utilisateurs.</h2>
+    </div>
+    <div class="description-content">
+        <p class="description-text">Cette API vous présente les resultats du modèle de recommendation d'articles</p> 
+    </div>
+    <div class="description-content">
+        <p class="description-text">elle prend un l'id de l'utilisateur en entrée et fournit la recommendation d'articles en sortie avec leurs scores associées..</p>
+    </div>
+    <div class="form-content">
+        <div class='form'>
+            <form id="recommendation-form" method="post" action="{{ url_for('predict') }}">
+                <h2 class="form-header">Veuillez saisir votre ID </h2>
+                <div class="form-group">
+                    <!--<label for="image_select">ID</label>-->
+                    <input type="text" name="user_id" id="user_id" required>
+                </div>
+                <br>
+                <h2 class="form-header">Nombre de recommendations: </h2>
+                <div class="form-group">
+                    <input type="number" name="n_reco" id="n_reco" value="5" required>
+                </div>
+                <div class="submit-content">
+                  <input type="submit" value="Obtenir les Recommendations" id="submit-button"/>
+                </div>
+                <div id="loading" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: white;">
+                  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                    <div class="spinner" ></div>
+                  </div>
+                </div>
+            </form>
+            <script>
+                document.getElementById("recommendation-form").addEventListener("submit", function(event) {
+                    if (!document.getElementById("user_id").value) {
+                        alert("Veuillez saisir votre ID avant de continuer");
+                        event.preventDefault();
+                    } else {
+                        document.getElementById("loading").style.display = "block";
+                    }
+                });
+            </script>
+        </div>
+    </div>
+</main>
+{% endblock %}

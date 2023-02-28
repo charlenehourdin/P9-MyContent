@@ -1,0 +1,64 @@
+    <!DOCTYPE html>
+    <html lang="fr">
+
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='sw.js') }}"></script>
+    <title>My Content</title>
+    <meta name="author" content="Charlène Hourdin">
+    <meta name="description"
+        content="API Flask qui prend un id utilisateur en entrée et retourne les recommandations d’articles associées." />
+    <meta property="og:title" content="My content recommendations" />
+    <meta property="og:url" content="{{ url_for(request.endpoint, **request.view_args) }}" />
+    <meta property="og:description"
+        content="API Flask qui prend un id utilisateur en entrée et retourne les recommandations d’articles associées." />
+    <meta property="og:image" content="{{ url_for('static', filename='logo.png') }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta name="theme-color" content="#DF2372">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" aria-label="My content Logo" href="{{ url_for('static', filename='favicon.ico') }}"
+        type="image/x-icon">
+    </head>
+
+    <body class="h-screen bg-white dark-bg-gray-900">
+    <nav class="nav">
+        <div class="nav-logo">
+        <a href="/" aria-label="Accueil" class="nav-logo-link">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Mycontent Logo" class="nav-logo-img"/>
+           <span class="nav-logo-text">My Content</span>
+        </a>
+        </div> {#
+            <div class="block lg:hidden">  
+            <button class="menu-btn">
+                <svg class="menu-icon" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <title>Menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+                </svg>
+            </button>
+        </div>
+        <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto md:hidden">
+            <div class="text-sm lg:flex-grow">
+                <a href="/" aria-label=”Accueil” class="home-link">Accueil</a>
+            </div> #}
+        <div>
+            <a href="https://www.linkedin.com/in/charl%C3%A8nehourdin/" aria-label=linkedin class="linkedin">
+                <img height="15" width="36" src="{{ url_for('static', filename='linkedin.png') }}" alt="linkedin Logo" />
+            </a>
+            <a href="https://github.com/charlenehourdin/P8-Future-vision-transport/" aria-label=GitHub class="github">
+                <img height="15" width="36" src="{{ url_for('static', filename='github.png') }}" alt="github Logo" />
+            </a>
+        </div>
+        </nav>
+    </head>
+    {% block body %} {%endblock%}
+    {% block script %} {%endblock%}
+        <footer class="footer">
+            <div class="footer-content">
+            <p class="footer-copyright">Copyright &copy; 2023, Hourdin Charlène.</p>
+            </div>
+        </footer>
