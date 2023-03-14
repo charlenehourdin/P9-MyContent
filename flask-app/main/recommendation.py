@@ -26,9 +26,9 @@ def recommend_articles_LMF(data, user_id, n_reco=5):
 
     # créer un dataframe avec les éléments recommandés et leurs scores
     rec_df = pd.DataFrame({'article_id': recommendations[0], 'score': recommendations[1]})
-    rec_df['score'] = rec_df['score']
+    rec_df['score'] = rec_df['score'].round(2)
 
     # trier par score et sélectionner les meilleures recommandations
-    rec_df = rec_df.sort_values(by='score', ascending=False).head(n_reco).round(3)
+    rec_df = rec_df.sort_values(by='score', ascending=False).head(n_reco)
 
     return rec_df
